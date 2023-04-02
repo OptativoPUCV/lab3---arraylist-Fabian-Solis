@@ -82,7 +82,8 @@ void* pop(ArrayList * l, int i){
 //6
 //remove elements
 void clean(ArrayList * l){
-
+    free(l);
+    l = createList();
 }
 
 int get_size(ArrayList * l){

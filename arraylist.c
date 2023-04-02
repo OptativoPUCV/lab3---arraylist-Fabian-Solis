@@ -61,14 +61,14 @@ void* get(ArrayList * l, int i){
 
 //5
 void* pop(ArrayList * l, int i){
+  if(l->size == 0) return NULL;
+  
+  if(i < 0){
+    i = i+l->size;
     return NULL;
 }
 
-//6
-//remove elements
-void clean(ArrayList * l){
-    
-}
+
 
 int get_size(ArrayList * l){
     return l->size;

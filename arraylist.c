@@ -18,6 +18,7 @@ ArrayList *createList(void)
   list->data = (void **) malloc(2*sizeof(void**));
   list->size = 0;
   list->capacity = 2;
+  
   return list;
 }
 
@@ -59,7 +60,7 @@ void* get(ArrayList * l, int i)
 {  
   if(i >= l->size) return NULL;
   
-  if(i < 0)return l->data[i+l->size]; 
+  if(i < 0) return l->data[i+l->size]; 
   
   return l->data[i];
 }
@@ -69,10 +70,7 @@ void* pop(ArrayList * l, int i)
 { 
   if(l->size == 0) return NULL;
   
-  if(i < 0)
-  {
-    i = i+l->size;
-  }
+  if(i < 0) i = i+l->size;
 
   void* aux = l->data[i];
 

@@ -4,14 +4,16 @@
 #include "arraylist.h"
 
 //normal array
-typedef struct ArrayList {
-    void **data;
-    int capacity;
-    int size;
+typedef struct ArrayList
+{
+  void **data;
+  int capacity;
+  int size;
 } ArrayList;
 
 //1
-ArrayList *createList(void) {
+ArrayList *createList(void) 
+{  
   ArrayList * list = (ArrayList *)malloc(sizeof(ArrayList));
   list->data = (void **) malloc(2*sizeof(void**));
   list->size = 0;
@@ -20,8 +22,10 @@ ArrayList *createList(void) {
 }
 
 //2
-void append(ArrayList * l, void * data){
-  if(l->size == l->capacity){
+void append(ArrayList * l, void * data)
+{  
+  if(l->size == l->capacity)
+  {
     l->capacity *= 2;
     l->data = realloc(l->data, l->capacity*sizeof(void**));
   }
@@ -31,10 +35,12 @@ void append(ArrayList * l, void * data){
 }
 
 //3
-void push(ArrayList * l, void * data, int i){
+void push(ArrayList * l, void * data, int i)
+{
   if(i > l->size) return;
   
-  if(l->size == l->capacity){
+  if(l->size == l->capacity)
+  {
     l->capacity *= 2;
     l->data = realloc(l->data, l->capacity*sizeof(void**));
   }
@@ -49,41 +55,42 @@ void push(ArrayList * l, void * data, int i){
 }
 
 //4
-void* get(ArrayList * l, int i){
+void* get(ArrayList * l, int i)
+{  
   if(i >= l->size) return NULL;
   
-  if(i < 0)
-  {
-    return l->data[i+l->size]; 
-  }
+  if(i < 0)return l->data[i+l->size]; 
+  
   return l->data[i];
 }
 
 //5
-void* pop(ArrayList * l, int i){
+void* pop(ArrayList * l, int i)
+{ 
   if(l->size == 0) return NULL;
   
-  if(i < 0){
+  if(i < 0)
+  {
     i = i+l->size;
   }
 
   void* aux = l->data[i];
 
   for(int j = i ; j < l->size ; j++)
-    {
+  {
       l->data[j] = l->data[j+1];
-    }
+  }
   
   l->size--;
-  
   return aux;
 }
 
 //6
 //remove elements
-void clean(ArrayList * l){
-    free(l);
-    l = createList();
+void clean(ArrayList * l)
+{
+  free(l);
+  l = createList();
 }
 
 int get_size(ArrayList * l){

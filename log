@@ -118,3 +118,9 @@ Sun 02 Apr 2023 02:50:53 AM UTC:
  tests:  16|0
 total_score: 70/70
 2442287
+Sun 02 Apr 2023 02:57:14 AM UTC: 
+ arraylist.c | 36 ++++++++++++++++++++++--------------
+ 1 file changed, 22 insertions(+), 14 deletions(-)
+ tests:  16|0
+total_score: 70/70
+8e8d58f
